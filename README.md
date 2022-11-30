@@ -73,6 +73,7 @@ plt.show()
 ## Data visualization
 
 ## Line plots
+~~~
 
 import seaborn as sns
 sns.lineplot(x="Sub-Category",y="Sales",data=df,marker='o')
@@ -98,6 +99,7 @@ sns.lineplot(x="Sub-Category",y="Quantity",data=df,marker='o')
 plt.xticks(rotation = 90)
 plt.title("Sub Categories vs Quantity")
 plt.show()
+~~~
 
 ## Bar plots:
 
@@ -186,21 +188,21 @@ sns.kdeplot(x="Quantity", data = df,hue='Segment')
 sns.kdeplot(x="Discount", data = df,hue='Segment')
 ~~~
 
-#violin plot
+## violin plot
 ~~~
 sns.violinplot(x="Profit",data=df)
 sns.violinplot(x="Discount",y="Ship Mode",data=df)
 sns.violinplot(x="Quantity",y="Ship Mode",data=df)
 ~~~
 
-#point plot
+## point plot
 ~~~
 sns.pointplot(x=df["Quantity"],y=df["Discount"])
 sns.pointplot(x=df["Quantity"],y=df["Category"])
 sns.pointplot(x=df["Sales"],y=df["Sub-Category"])
 ~~~
 
-#Pie Chart
+## Pie Chart
 ~~~
 df.groupby(['Category']).sum().plot(kind='pie', y='Discount',figsize=(6,10),pctdistance=1.7,labeldistance=1.2)
 df.groupby(['Sub-Category']).sum().plot(kind='pie', y='Sales',figsize=(10,10),pctdistance=1.7,labeldistance=1.2)
@@ -227,12 +229,12 @@ plt.pie(df1["Sales"],labels=labels,autopct="%0.0f%%")
 plt.show()
 ~~~
 
-#HeatMap
+## HeatMap
 ~~~
 df4=df.copy()
 ~~~
 
-#encoding
+## encoding
 ~~~
 from sklearn.preprocessing import LabelEncoder,OrdinalEncoder,OneHotEncoder
 le=LabelEncoder()
@@ -248,7 +250,7 @@ df4["Category"]=oe.fit_transform(df[["Category"]])
 df4["Sub-Category"]=le.fit_transform(df[["Sub-Category"]])
 ~~~
 
-#scaling
+## scaling
 ~~~
 from sklearn.preprocessing import RobustScaler
 sc=RobustScaler()
@@ -256,7 +258,7 @@ df5=pd.DataFrame(sc.fit_transform(df4),columns=['Ship Mode', 'Segment', 'City', 
                                                'Category','Sub-Category','Sales','Quantity','Discount','Profit'])
 ~~~
 
-#Heatmap
+## Heatmap
 ~~~
 plt.subplots(figsize=(12,7))
 sns.heatmap(df5.corr(),cmap="PuBu",annot=True)
@@ -264,7 +266,7 @@ plt.show()
 ~~~
 
 
-# OUPUT
+## OUPUT
 
 ## Initial Dataset:
 
